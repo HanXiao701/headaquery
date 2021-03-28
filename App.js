@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -16,15 +16,15 @@ import {
   Text,
   useColorScheme,
   View,
+  Image,
 } from 'react-native';
 
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import SearchBox from './component/searchbar';
+import constants from './component/constants';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -52,6 +52,37 @@ const Section = ({children, title}): Node => {
   );
 };
 
+const Header = ({children, title}): Node => {
+  const isDarkMode = useColorScheme() === 'dark';
+  return (
+    <View style={styles.header}>
+      <Image
+      style={styles.headerSetting}
+      source={require('./img/setting.png')}
+      />
+      <Text
+        style={[
+          styles.headerTitle,
+          {
+            color: isDarkMode ? Colors.white : Colors.black,
+          },
+        ]}>
+        {title}
+      </Text>
+      <Text
+        style={[
+          styles.sectionDescription,
+          {
+            color: isDarkMode ? Colors.light : Colors.dark,
+          },
+        ]}>
+        {children}
+      </Text>
+      <SearchBox/>
+    </View>
+  );
+};
+
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -65,7 +96,8 @@ const App: () => Node = () => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        <Header title="HEADAQUERY">
+        </Header>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -75,15 +107,13 @@ const App: () => Node = () => {
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
-            <ReloadInstructions />
+            {constants.name}
           </Section>
           <Section title="Debug">
-            <DebugInstructions />
           </Section>
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -91,6 +121,21 @@ const App: () => Node = () => {
 };
 
 const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "#DAC9A6",
+    paddingHorizontal: 24,
+  },
+  headerSetting: {
+    height: 40,
+    width: 40,
+    position: "absolute",
+  },
+  headerTitle: {
+    justifyContent : "center",
+    textAlign : "center",
+    fontSize: 30,
+    fontWeight: '600',
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
