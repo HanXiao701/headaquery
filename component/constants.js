@@ -1,5 +1,5 @@
 const object = {
-    website:'http://www.hao123.com',
-    name:'好123',
+    website:'https://github.com/UniharaKawase/headaquery',
+    name:'TestDesc2',
  };
  export default object;

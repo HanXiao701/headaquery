@@ -7,14 +7,10 @@ import constants from './constants';
     return (
       <View style={styles.SearchBoxStyle}>
         <TextInput
-          style={{height: 40}}
           placeholder= "Please Type in for Search"
           onChangeText={text => setText(text)}
           defaultValue={text}
         />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {text.split(' ').map((word) => word && '🍕').join(' ')}
-        </Text>
       </View>
     );
  }

@@ -102,17 +102,18 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
+          <Section title="TestTitle1">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>
-          <Section title="See Your Changes">
+          <Section title="TestTitle1">
             {constants.name}
           </Section>
-          <Section title="Debug">
+          <Section title="TestTitle1">
+            TestDesc3
           </Section>
           <Section title="Learn More">
-            Read the docs to discover what to do next:
+            {constants.website}
           </Section>
         </View>
       </ScrollView>
