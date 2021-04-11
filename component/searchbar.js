@@ -11,6 +11,9 @@ import constants from './constants';
           onChangeText={text => setText(text)}
           defaultValue={text}
         />
+        <Text>
+          {text}
+        </Text>
       </View>
     );
  }
